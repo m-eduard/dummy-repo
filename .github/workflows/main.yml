@@ -1,0 +1,30 @@
+name: Code Reviewer
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  extract-values:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2
+        
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: execute py script
+        env:
+          DUMMY: ${{ secrets.DUMMY }}
+        run: |
+          repo_name="${GITHUB_REPOSITORY#*/}"
+          echo "Repository Name: $repo_name"
+          pull_request_number="${{ github.event.pull_request.number }}"
+          echo "Pull Request Number: $pull_request_number"
+          python dummy.py
