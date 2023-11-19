@@ -20,7 +20,6 @@ jobs:
         env:
           DUMMY_VAR: ${{ secrets.DUMMY_VAR }}
         run: |
-          printenv
           repo_name="${GITHUB_REPOSITORY#*/}"
           echo "Repository Name: $repo_name"
           pull_request_number="${{ github.event.pull_request.number }}"
