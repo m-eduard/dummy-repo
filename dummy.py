@@ -1,3 +1,3 @@
 import os
 
-print(os.getenv("DUMMY_VAR"))
+print("Value of DUMMY_VAR is:", os.getenv("DUMMY_VAR"))
