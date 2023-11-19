@@ -1,3 +1,3 @@
 import os
 
-print(os.getenv("DUMMY_VAR"))
+print(os.getenv("DUMMY"))
