@@ -18,7 +18,7 @@ jobs:
 
       - name: execute py script
         env:
-          DUMMY_VAR: ${{ ENV.DUMMY_VAR }}
+          DUMMY_VAR: ${{ vars.DUMMY_VAR }}
         run: |
           repo_name="${GITHUB_REPOSITORY#*/}"
           echo "Repository Name: $repo_name"
